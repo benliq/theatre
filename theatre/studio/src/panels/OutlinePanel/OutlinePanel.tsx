@@ -36,7 +36,8 @@ const Container = styled.div<{pin: boolean}>`
   &:hover {
     display: block;
   }
-
+  // CDM Main
+  display: none;
   // Create a small buffer on the bottom to aid selecting the bottom item in a long, scrolling list
   &::after {
     content: '';
