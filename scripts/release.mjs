@@ -20,7 +20,7 @@ const packagesToBuild = [
   '@theatre/dataverse',
   '@theatre/react',
   '@theatre/browser-bundles',
-  // '@theatre/r3f',
+  '@theatre/r3f',
   // 'theatric',
 ]
 
@@ -30,7 +30,7 @@ const packagesToPublish = [
   '@theatre/dataverse',
   '@theatre/react',
   '@theatre/browser-bundles',
-  // '@theatre/r3f',
+  '@theatre/r3f',
   // 'theatric',
 ]
 
@@ -45,7 +45,7 @@ const packagesWhoseVersionsShouldBump = [
   'packages/dataverse',
   'packages/react',
   'packages/browser-bundles',
-  // 'packages/r3f',
+  'packages/r3f',
   // 'packages/theatric',
 ]
 
@@ -218,10 +218,10 @@ async function writeVersionsToPackageJSONs(monorepoVersion) {
 
 async function restoreVersions() {
   const wasVerbose = $.verbose
-  // $.verbose = false
+  $.verbose = true
   for (const packagePathRelativeFromRoot of packagesWhoseVersionsShouldBump) {
     const pathToPackageInGit = packagePathRelativeFromRoot + '/package.json'
-
+    console.log('pathToPackageInGit', pathToPackageInGit)
     await $`git checkout ${pathToPackageInGit}`
   }
   $.verbose = wasVerbose
