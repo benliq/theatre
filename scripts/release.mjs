@@ -88,7 +88,7 @@ const packagesWhoseVersionsShouldBump = [
     console.error(`Use a semver version, like 1.2.3-rc.4. Provided: ${version}`)
     process.exit(1)
   }
-
+  console.log('getPrev')
   const previousVersion = require('../package.json').version
 
   if (version === previousVersion) {
@@ -167,7 +167,7 @@ const packagesWhoseVersionsShouldBump = [
   }
 
   $.verbose = true
-
+  console.log('writeVersionsToPackageJSONs')
   await writeVersionsToPackageJSONs(version)
 
   console.log('Committing/tagging')
@@ -218,8 +218,10 @@ async function writeVersionsToPackageJSONs(monorepoVersion) {
 }
 
 async function restoreVersions() {
+  console.log('restoreVersions')
   const wasVerbose = $.verbose
   $.verbose = true
+  console.log('for')
   for (const packagePathRelativeFromRoot of packagesWhoseVersionsShouldBump) {
     const pathToPackageInGit = packagePathRelativeFromRoot + '/package.json'
     console.log('pathToPackageInGit', pathToPackageInGit)
