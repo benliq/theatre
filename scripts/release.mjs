@@ -187,7 +187,7 @@ const packagesWhoseVersionsShouldBump = [
   await Promise.all(
     packagesToPublish.map(
       (workspace) =>
-        $`yarn workspace ${workspace} npm publish --registry http://localhost:4873/ --access public --tag ${npmTag}`,
+        $`yarn workspace ${workspace} npm publish --access public --tag ${npmTag}`,
     ),
   )
 })()
