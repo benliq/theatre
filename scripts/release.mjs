@@ -136,7 +136,7 @@ const packagesWhoseVersionsShouldBump = [
   }
   */
 
-  const skipTypescriptEmit = argv['skip-ts'] === true
+  const skipTypescriptEmit = true// argv['skip-ts'] === true
 
   console.log('Assigning versions')
   await writeVersionsToPackageJSONs(version)

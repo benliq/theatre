@@ -34,7 +34,9 @@ const packagesToBuild = [
   await Promise.all([
     // $`yarn run build:ts`,
     ...packagesToBuild.map(
-      (workspace) => $`yarn workspace ${workspace} run build`,
+      function(workspace) { 
+        console.log(`yarn workspace ${workspace} run build`)
+        return $`yarn workspace ${workspace} run build`},
     ),
   ])
 })()
