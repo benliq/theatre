@@ -158,7 +158,7 @@ const packagesWhoseVersionsShouldBump = [
   console.log(
     'Checking if the build produced artifacts that must first be comitted to git',
   )
-  $.verbose = false
+  $.verbose = true
   if ((await $`git status -s`).toString().length > 0) {
     $.verbose = true
     await $`git status -s`
@@ -194,6 +194,7 @@ const packagesWhoseVersionsShouldBump = [
 
 /** @param {string} monorepoVersion */
 async function writeVersionsToPackageJSONs(monorepoVersion) {
+  console.log('writeVersionsToPackageJSONs', monorepoVersion)
   for (const packagePathRelativeFromRoot of packagesWhoseVersionsShouldBump) {
     const pathToPackage = path.resolve(
       __dirname,
