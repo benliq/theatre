@@ -21,7 +21,7 @@ const packagesToBuild = [
   '@theatre/react',
   '@theatre/browser-bundles',
   '@theatre/r3f',
-  'theatric',
+  // 'theatric',
 ]
 
 const packagesToPublish = [
@@ -31,7 +31,7 @@ const packagesToPublish = [
   '@theatre/react',
   '@theatre/browser-bundles',
   '@theatre/r3f',
-  'theatric',
+  // 'theatric',
 ]
 
 /**
@@ -46,7 +46,7 @@ const packagesWhoseVersionsShouldBump = [
   'packages/react',
   'packages/browser-bundles',
   'packages/r3f',
-  'packages/theatric',
+  // 'packages/theatric',
 ]
 
 ;(async function () {
@@ -185,7 +185,7 @@ const packagesWhoseVersionsShouldBump = [
   await Promise.all(
     packagesToPublish.map(
       (workspace) =>
-        $`yarn workspace ${workspace} npm publish --access public --tag ${npmTag}`,
+        $`yarn workspace ${workspace} npm publish --registry http://localhost:4873/ --access public --tag ${npmTag}`,
     ),
   )
 })()
